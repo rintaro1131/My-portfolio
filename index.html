@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>森合 直喜 | AI/Automation Builder</title>
+    <meta name="description" content="現場の工数を削減するAI×自動化の成果物を継続更新。制作実績とリンク一覧。" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="森合 直喜｜AIコーディングポートフォリオ" />
+    <meta property="og:description" content="現場の工数を削減するAI×自動化の成果物を継続更新。制作実績とリンク一覧。" />
+    <meta property="og:url" content="" id="og-url" />
+    <meta property="og:image" content="assets/top.png" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
+
+    <style>
+      :root {
+        --max-w: 1160px;
+        --pad-x: 24px;
+        --gap: 48px;
+        --fg: #111;
+        --sub: #8c8f93;
+        --line: #e9eaec;
+        --muted: #f5f6f7;
+        --bg: #fff;
+        --ring: #111;
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        color: var(--fg);
+        background: var(--bg);
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Inter, Noto Sans JP, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.6;
+        letter-spacing: 0.01em; /* JP: 詰めすぎない */
+      }
+      img { max-width: 100%; display: block; }
+      a { color: inherit; text-decoration: none; }
+      a:hover { text-decoration: underline; text-underline-offset: 2px; }
+      a:focus-visible, button:focus-visible {
+        outline: 2px solid var(--ring);
+        outline-offset: 2px;
+      }
+      .container {
+        max-width: var(--max-w);
+        padding-inline: var(--pad-x);
+        margin-inline: auto;
+      }
+      /* Header */
+      header.site-header { margin-top: 28px; }
+      .site-header .inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        font-weight: 500;
+        letter-spacing: 0.08em; /* 英字は少し広め */
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      nav.primary-nav {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: var(--sub);
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+      }
+      nav.primary-nav a { padding: 6px 8px; border-radius: 8px; }
+      nav.primary-nav a:hover { background: #f8f9fa; color: #333; text-decoration: none; }
+      .contact-btn {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 6px 14px;
+        color: #444;
+        background: transparent;
+        transition: background-color .2s ease, color .2s ease;
+      }
+      .contact-btn:hover { background: #f7f8f9; color: #111; }
+
+      /* Hero */
+      section.hero {
+        margin-top: 44px;
+        background: var(--muted);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+      .hero .inner {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: var(--gap);
+        min-height: clamp(420px, 58vh, 520px);
+        align-items: center;
+      }
+      .hero-left h1 {
+        margin: 0 0 8px 0;
+        font-size: clamp(32px, 4.2vw, 40px);
+        font-weight: 600;
+        line-height: 1.25;
+        letter-spacing: 0.02em;
+      }
+      .hero-left .role { font-size: 18px; font-weight: 500; color: #2c2e31; letter-spacing: 0.02em; }
+      .hero-left .tagline { margin-top: 10px; color: var(--sub); font-size: 14px; }
+      .hero-actions { margin-top: 18px; display: flex; align-items: center; gap: 12px; }
+      .hero-actions a { font-size: 12px; color: var(--sub); letter-spacing: 0.08em; }
+      .hero-actions a:hover { color: #4a4d52; }
+
+      .hero-right {
+        align-self: stretch;
+        display: flex;
+        align-items: center;
+      }
+      .hero-frame {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        border: 1px solid var(--line);
+        background-color: #fafbfc;
+        background-image: url('assets/top.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-accent {
+        position: absolute;
+        left: 50%;
+        bottom: -18px;
+        width: 1px; height: 36px;
+        background: var(--line);
+        transform: translateX(-50%);
+      }
+
+      /* Section heading */
+      .section-heading { text-align: center; padding-top: 96px; padding-bottom: 56px; }
+      .section-heading .en { color: #2c2e31; font-weight: 500; letter-spacing: 0.12em; font-size: 12px; }
+      .section-heading .ja { color: var(--sub); font-size: 12px; margin-top: 6px; }
+
+      /* Grid */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(28px, 4.2vw, var(--gap));
+      }
+      .card {
+        border: 1px solid rgba(233,234,236,0.8);
+        border-radius: 8px;
+        overflow: clip;
+        background: #fff;
+        transition: transform .05s ease;
+      }
+      .card:hover { transform: translateY(-1px); }
+      .card a { display: block; height: 100%; color: inherit; }
+      .thumb {
+        aspect-ratio: 16 / 10;
+        background: var(--muted);
+        border-bottom: 1px solid var(--line);
+        overflow: hidden;
+      }
+      .thumb img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.98); transition: filter .2s ease; }
+      .card:hover .thumb img { filter: brightness(1.03); }
+      .meta { padding: 14px 14px 16px; }
+      .title { font-size: 16px; font-weight: 500; letter-spacing: 0.02em; margin: 0; }
+      .card:hover .title { text-decoration: underline; text-underline-offset: 2px; }
+      .sub { color: var(--sub); font-size: 12px; margin-top: 8px; letter-spacing: 0.01em; }
+
+      .empty { text-align: center; color: var(--sub); padding: 40px 0 80px; }
+
+      /* Footer */
+      footer.site-footer { margin-top: 80px; border-top: 1px solid var(--line); }
+      .footer-top { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
+      .foot-left { display: flex; align-items: center; gap: 12px; }
+      .avatar { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); background: var(--muted); overflow: hidden; }
+      .foot-name { font-size: 13px; font-weight: 500; letter-spacing: 0.06em; }
+      .social { display: flex; align-items: center; gap: 12px; color: var(--sub); font-size: 12px; }
+      .social a { padding: 6px 6px; border-radius: 8px; }
+      .social a:hover { background: #f8f9fa; color: #333; text-decoration: none; }
+      .foot-right { color: var(--sub); font-size: 12px; display: flex; gap: 14px; letter-spacing: 0.08em; }
+      .foot-right a { padding: 6px 8px; border-radius: 8px; }
+      .foot-right a:hover { background: #f8f9fa; color: #333; text-decoration: none; }
+      .foot-line { height: 1px; background: var(--line); }
+      .foot-copy { text-align: center; color: var(--sub); font-size: 12px; padding: 12px 0 28px; }
+
+      /* Utilities */
+      .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+      /* Responsive */
+      @media (max-width: 960px) {
+        .hero .inner { grid-template-columns: 1fr; gap: 28px; padding-block: 28px; }
+        .hero-right { order: -1; }
+        .section-heading { padding-top: 72px; padding-bottom: 44px; }
+        .grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 640px) {
+        header.site-header { margin-top: 22px; }
+        .grid { grid-template-columns: 1fr; }
+        .foot-right { display: none; }
+      }
+    </style>
+  </head>
+  <body id="top">
+    <header class="site-header">
+      <div class="container inner">
+        <div class="brand" aria-label="Site logo">MORIAI NAOKI</div>
+        <nav class="primary-nav" aria-label="Primary">
+          <a href="#top">HOME</a>
+          <a href="#works">WORKS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container inner">
+          <div class="hero-left">
+            <h1 id="hero-title">森合 直喜</h1>
+            <div class="role">AI/Automation Builder</div>
+            <p class="tagline">現場の工数を削減するAI×自動化の成果物を継続更新</p>
+            
+          </div>
+          <div class="hero-right">
+            <div class="hero-frame" role="img" aria-label="Hero placeholder">
+              <div class="hero-accent" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="works" aria-labelledby="works-title">
+        <div class="container">
+          <div class="section-heading">
+            <div class="en" id="works-title">WORKS</div>
+            <div class="ja">制作物</div>
+          </div>
+
+          <div id="grid" class="grid" aria-live="polite"></div>
+          <div id="empty" class="empty" hidden>条件に一致する制作物がありません。</div>
+        </div>
+      </section>
+
+      <section id="about" class="container" aria-label="About" style="padding-top:96px; padding-bottom:64px;">
+        <h2 class="sr-only">About</h2>
+        <p style="color:var(--sub); font-size:14px; max-width:720px;">
+          AIと自動化による現場の効率化に注力し、軽量で実用的なツールやサイトを継続的に制作・公開しています。
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="foot-left">
+            <img class="avatar" id="footAvatar" alt="森合 直喜" />
+            <div class="foot-name">森合 直喜</div>
+            <div class="social" aria-label="Social links">
+              <a id="footX" href="#" target="_blank" rel="noopener noreferrer" hidden>X</a>
+            </div>
+          </div>
+          <div class="foot-right" aria-label="Secondary navigation">
+            <a href="#top">HOME</a>
+            <a href="#works">WORKS</a>
+          </div>
+        </div>
+        <div class="foot-line" aria-hidden="true"></div>
+        <div class="foot-copy">&copy; <span id="year"></span> MORIAI NAOKI</div>
+      </div>
+    </footer>
+
+    <!-- Embedded Data -->
+    <script type="application/json" id="profile">{
+  "name": "森合 直喜",
+  "role": "AI/Automation Builder",
+  "tagline": "現場の工数を削減するAI×自動化の成果物を継続更新",
+  "avatar": "",
+  "links": {
+    "github": "https://github.com/rintaro1131",
+    "email": "mailto:n-moriai@eco-station.co.jp",
+    "x": "",
+    "linkedin": ""
+  }
+}</script>
+
+    <script type="application/json" id="projects">[
+  {
+    "id": "market-now-gh-pages",
+    "title": "MarketNow（即時確認サイト）",
+    "href": "https://rintaro1131.github.io/MarketNowSite/",
+    "summary": "為替・S&amp;P500・BTC/ETHを即時確認する軽量サイト。",
+    "tags": ["Web Site","Finance"],
+    "date": "2025-11-14",
+    "thumb": "assets/MarketNow.png",
+    "repo": "https://github.com/rintaro1131/MarketNowSite"
+  },
+  {
+    "id": "market-now-vercel",
+    "title": "新しい事業の企画サイト",
+    "href": "https://lp-vibecoding.vercel.app/",
+    "summary": "新事業の企画検証として作成したワンビュー。",
+    "tags": ["Concept","Finance"],
+    "date": "2025-11-01",
+    "thumb": "assets/AISchool.png",
+    "repo": ""
+  },
+  {
+    "id": "merge-pdf",
+    "title": "PDFファイル結合サイト",
+    "href": "https://merge-pdf-eight.vercel.app/",
+    "summary": "社内のPDFをドラッグ&amp;ドロップで一括結合。",
+    "tags": ["Automation","PDF"],
+    "date": "2025-10-15",
+    "thumb": "assets/MargePDF.png",
+    "repo": ""
+  },
+  {
+    "id": "multi-apps",
+    "title": "Multi Apps ポータル",
+    "href": "https://multi-apps-tau.vercel.app/",
+    "summary": "複数小規模アプリのランチャー。",
+    "tags": ["Portal"],
+    "date": "2025-09-30",
+    "thumb": "assets/MultiApps.png",
+    "repo": ""
+  },
+  {
+    "id": "market-now-ext",
+    "title": "MarketNow Chrome拡張配布",
+    "href": "https://market-now.vercel.app/",
+    "summary": "主要指標を素早く閲覧できる拡張の配布サイト。",
+    "tags": ["ChromeExt","Finance"],
+    "date": "2025-08-20",
+    "thumb": "assets/ChromeExtension.png",
+    "repo": ""
+  }
+]</script>
+
+    <script>
+      (function() {
+        const profile = JSON.parse(document.getElementById('profile').textContent);
+        const projects = JSON.parse(document.getElementById('projects').textContent);
+
+        // Set dynamic URL in OGP
+        const ogUrl = document.getElementById('og-url');
+        if (ogUrl) ogUrl.setAttribute('content', location.href);
+
+        // Wire contact and hero links
+        const contact = (profile.links && profile.links.email) || '#';
+        const gh = (profile.links && profile.links.github) || '#';
+        const xurl = (profile.links && profile.links.x) || '';
+        
+        const contactBtn = document.getElementById('contactBtn');
+        const footContact = document.getElementById('footContact');
+        const footGithub = document.getElementById('footGithub');
+        const footX = document.getElementById('footX');
+        
+        if (contactBtn) { contactBtn.href = contact; contactBtn.setAttribute('rel','noopener noreferrer'); contactBtn.setAttribute('target','_blank'); }
+        if (footContact) { footContact.href = contact; footContact.setAttribute('rel','noopener noreferrer'); footContact.setAttribute('target','_blank'); }
+        if (footGithub) footGithub.href = gh;
+        if (xurl) { footX.href = xurl; footX.hidden = false; }
+
+        // Footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Avatar generation (initial circle) when empty
+        function generateAvatarDataURL(name, size = 56) {
+          const c = document.createElement('canvas');
+          c.width = c.height = size;
+          const ctx = c.getContext('2d');
+          // Background circle
+          ctx.fillStyle = '#f5f6f7';
+          ctx.fillRect(0,0,size,size);
+          ctx.fillStyle = '#e9eaec';
+          ctx.beginPath();
+          ctx.arc(size/2, size/2, size/2 - 1, 0, Math.PI*2);
+          ctx.fill();
+          ctx.strokeStyle = '#e5e6e8';
+          ctx.stroke();
+          // Initial
+          const initial = (name || '').trim().charAt(0) || '?';
+          ctx.fillStyle = '#6b6f76';
+          ctx.font = `bold ${Math.floor(size*0.44)}px -apple-system, BlinkMacSystemFont, Segoe UI, Inter, Noto Sans JP, Helvetica, Arial, sans-serif`;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(initial, size/2, size/2 + 1);
+          return c.toDataURL('image/png');
+        }
+
+        // Placeholder thumbnail with X
+        function generateThumbPlaceholder(w = 1200, h = 750) {
+          const c = document.createElement('canvas');
+          c.width = w; c.height = h;
+          const ctx = c.getContext('2d');
+          ctx.fillStyle = '#e9eaec';
+          ctx.fillRect(0,0,w,h);
+          ctx.strokeStyle = '#ffffff';
+          ctx.lineWidth = Math.max(1, Math.floor(w/600));
+          ctx.beginPath();
+          ctx.moveTo(0,0); ctx.lineTo(w,h);
+          ctx.moveTo(w,0); ctx.lineTo(0,h);
+          ctx.stroke();
+          return c.toDataURL('image/png');
+        }
+
+        // Render projects
+        const grid = document.getElementById('grid');
+        const empty = document.getElementById('empty');
+        const sorted = projects.slice().sort((a,b) => new Date(b.date) - new Date(a.date));
+        if (!sorted.length) {
+          empty.hidden = false;
+        } else {
+          const frag = document.createDocumentFragment();
+          for (const p of sorted) {
+            const a = document.createElement('a');
+            a.href = p.href || '#';
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.setAttribute('aria-label', p.title);
+
+            const card = document.createElement('article');
+            card.className = 'card';
+            card.appendChild(a);
+
+            const figure = document.createElement('div');
+            figure.className = 'thumb';
+            const img = document.createElement('img');
+            img.loading = 'lazy';
+            img.decoding = 'async';
+            img.alt = p.title || 'Project thumbnail';
+            img.src = p.thumb && p.thumb.trim() ? p.thumb : generateThumbPlaceholder();
+            figure.appendChild(img);
+
+            const meta = document.createElement('div');
+            meta.className = 'meta';
+            const h3 = document.createElement('h3');
+            h3.className = 'title';
+            h3.textContent = p.title;
+            const sub = document.createElement('div');
+            sub.className = 'sub';
+            const tags = Array.isArray(p.tags) ? p.tags.join(' / ') : '';
+            sub.textContent = [p.summary, tags].filter(Boolean).join(' ・ ');
+            meta.appendChild(h3);
+            meta.appendChild(sub);
+
+            a.appendChild(figure);
+            a.appendChild(meta);
+            frag.appendChild(card);
+          }
+          grid.appendChild(frag);
+        }
+
+        // Inject avatar
+        const avatarEl = document.getElementById('footAvatar');
+        const useAvatar = (profile.avatar || '').trim() || generateAvatarDataURL(profile.name, 56);
+        if (avatarEl) avatarEl.src = useAvatar;
+
+        // JSON-LD (Person + CreativeWork[])
+        try {
+          const person = {
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: profile.name,
+            jobTitle: profile.role,
+            description: profile.tagline,
+            url: location.href,
+            email: profile.links && profile.links.email ? profile.links.email.replace('mailto:', '') : undefined,
+            sameAs: [profile.links?.github, profile.links?.x, profile.links?.linkedin].filter(Boolean),
+            hasPart: sorted.map(p => ({
+              '@type': 'CreativeWork',
+              name: p.title,
+              url: p.href,
+              thumbnailUrl: (p.thumb && p.thumb.trim()) ? p.thumb : generateThumbPlaceholder(1200, 750),
+              datePublished: p.date,
+              keywords: Array.isArray(p.tags) ? p.tags.join(', ') : undefined,
+              about: p.summary
+            }))
+          };
+          const ld = document.createElement('script');
+          ld.type = 'application/ld+json';
+          ld.textContent = JSON.stringify(person);
+          document.head.appendChild(ld);
+        } catch (e) { /* no-op */ }
+      })();
+    </script>
+  </body>
+</html>
